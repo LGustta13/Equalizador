@@ -1,22 +1,40 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { styles } from './Style';
 
-interface VolumeData {
-    color: string,
-    id: number
-}
+const COLORS = [
+    { id: '1', color: "#0500FF" },
+    { id: '2', color: "#0057FF" },
+    { id: '3', color: "#00FFD1" },
+    { id: '4', color: "#00FF66" },
+    { id: '5', color: "#24FF00" },
+    { id: '6', color: "#ADFF00" },
+    { id: '7', color: "#CCFF00" },
+    { id: '8', color: "#FBA500" },
+    { id: '9', color: "#FF4D00" },
+    { id: '10', color: "#FF0000" }
+]
 
 // Arrow function - const função = (parâmetro) => {}
 export const Home = () => {
 
     const [volume, setVolume] = useState<number>(0);
-    const [volumeBoxes, setVolumeBoxes] = useState<VolumeData[]>([]);
+    const boxes = [];
 
-    function handleAddVolume(id: number) {
+    for (var i = 0; i < 10; i++) {
+
+        const data = {
+            id: i + 1,
+            color: "#C4C4C4"
+        };
+        boxes[i] = data;
+    }
+
+    function handleAddVolume() {
         if (volume < 10) {
             setVolume(volume + 1)
         }
+
     }
 
     function handleSubVolume() {
@@ -24,18 +42,6 @@ export const Home = () => {
             setVolume(volume - 1)
         }
     }
-
-    useEffect(() => {
-        for (let i = 0; i < 10; i++) {
-
-            const data = {
-                id: i + 1,
-                color: "#C4C4C4"
-            }
-
-            setVolumeBoxes(oldState => [...oldState, data])
-        }
-    }, [])
 
     return (
         <View style={styles.container}>
@@ -50,27 +56,27 @@ export const Home = () => {
                     <TouchableOpacity
                         style={[styles.volumeBox, { marginBottom: 157 }]}
                         activeOpacity={0.8}
+                        onPress={handleAddVolume}
                     />
 
                     <TouchableOpacity
                         style={styles.volumeBox}
                         activeOpacity={0.8}
+                        onPress={handleSubVolume}
                     />
                 </View>
 
                 <View>
-                    {/*
-                        volumeBoxes.map((data) => (
-                            <View style={[styles.colorBox, { backgroundColor: data.color }]} />
+                    {/**BARRA */
+                        boxes.map(box => (
+
+                            < View style={[styles.colorBox, { backgroundColor: box.color }]} />
                         ))
-                        */}
+                    }
                 </View>
 
+
             </View>
-
-
-
-            {/**BARRA */}
 
             <TouchableOpacity style={styles.subBox}>
                 <Text style={styles.subText}>

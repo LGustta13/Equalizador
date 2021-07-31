@@ -38,6 +38,7 @@ export const styles = StyleSheet.create({
         width: 25,
         height: 25,
         marginBottom: 10,
+        backgroundColor: "#C4C4C4"
     },
 
     subBox: {
