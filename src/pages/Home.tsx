@@ -12,7 +12,8 @@ const COLORS = [
     { id: '7', color: "#CCFF00" },
     { id: '8', color: "#FBA500" },
     { id: '9', color: "#FF4D00" },
-    { id: '10', color: "#FF0000" }
+    { id: '10', color: "#FF0000" },
+
 ]
 
 // Arrow function - const função = (parâmetro) => {}
