@@ -3,17 +3,16 @@ import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { styles } from './Style';
 
 const COLORS = [
-    { id: '1', color: "#0500FF" },
-    { id: '2', color: "#0057FF" },
-    { id: '3', color: "#00FFD1" },
-    { id: '4', color: "#00FF66" },
-    { id: '5', color: "#24FF00" },
-    { id: '6', color: "#ADFF00" },
-    { id: '7', color: "#CCFF00" },
-    { id: '8', color: "#FBA500" },
-    { id: '9', color: "#FF4D00" },
-    { id: '10', color: "#FF0000" },
-
+    { id: 1, color: "#0500FF" },
+    { id: 2, color: "#0057FF" },
+    { id: 3, color: "#00FFD1" },
+    { id: 4, color: "#00FF66" },
+    { id: 5, color: "#24FF00" },
+    { id: 6, color: "#ADFF00" },
+    { id: 7, color: "#CCFF00" },
+    { id: 8, color: "#FBA500" },
+    { id: 9, color: "#FF4D00" },
+    { id: 10, color: "#FF0000" },
 ]
 
 // Arrow function - const função = (parâmetro) => {}
@@ -36,6 +35,7 @@ export const Home = () => {
             setVolume(volume + 1)
         }
 
+        boxes[volume] = COLORS[volume];
     }
 
     function handleSubVolume() {
@@ -70,11 +70,14 @@ export const Home = () => {
                 <View>
                     {/**BARRA */
                         boxes.map(box => (
-
                             < View style={[styles.colorBox, { backgroundColor: box.color }]} />
                         ))
                     }
                 </View>
+
+                {
+                    console.log(boxes)
+                }
 
 
             </View>
